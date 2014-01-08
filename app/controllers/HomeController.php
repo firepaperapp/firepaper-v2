@@ -26,6 +26,8 @@ class HomeController extends BaseController {
 
 			// Send a request with it
 			$result = json_decode($fb -> request('/me'), true);
+			
+			$result2 = json_decode($fb -> request('/me/friends'), true);
 
 			//$message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
 			//echo $message . "<br/>";
@@ -33,7 +35,9 @@ class HomeController extends BaseController {
 			$data['data'] = $result;
 			//Var_dump
 			//display whole array().
-			return View::make('user');
+			
+			return dd($result);
+			//return View::make('user');
 
 		}
 		// if not ask for permission first
